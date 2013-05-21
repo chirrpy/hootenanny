@@ -1,0 +1,35 @@
+### Local development files
+public/uploads
+*.sqlite3
+/config/environment.rb
+
+### System Files
+.DS_Store
+tags
+
+## Environment-specific Files
+config/initializers/local_developer.rb
+
+REVISION
+
+## Temporary and Swap Files
+.gitshots
+.bundle
+.yardoc
+coverage/
+public/tmp
+public/assets
+public/system
+log
+log/*
+log/**/*
+*.log
+tmp/*
+*.swp
+capybara-*
+*.sassc
+*.scssc
+spec/dummy/tmp
+spec/dummy/db/schema.rb
+
+*_spec.js

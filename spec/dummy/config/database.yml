@@ -1,0 +1,44 @@
+development:
+  database: development
+  min_messages: warning
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: jfelchner
+  password:
+
+test:
+  database: test
+  min_messages: warning
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: jfelchner
+  password:
+
+staging:
+  database: development
+  min_messages: warning
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: jfelchner
+  password:
+
+princess:
+  database: development
+  min_messages: warning
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: jfelchner
+  password:
+
+production:
+  database: development
+  min_messages: warning
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: jfelchner
+  password:
