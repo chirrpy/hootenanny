@@ -1,4 +1,5 @@
 require 'uri'
+require 'hootenanny/errors'
 
 module  Hootenanny
 class   Subscription < ActiveRecord::Base
@@ -63,6 +64,8 @@ class   Subscription < ActiveRecord::Base
 
     where( subscriber: subscriber, topic: topic).first ||
     create(subscriber: subscriber, topic: topic)
+  rescue URI::InvalidURIError
+    raise Hootenanny::SubscriptionAssignmentError.new('All options passed need to be valid URIs')
   end
 end
 end
