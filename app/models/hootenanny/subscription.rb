@@ -3,7 +3,7 @@ class   Subscription < ActiveRecord::Base
   self.table_name = 'hootenanny_subscriptions'
 
   ###
-  # Public: Finds all subscriptions which are subscribed to a given topic
+  # Private: Finds all subscriptions which are subscribed to a given topic
   #
   # topic - A String represeenting a topic which has been subscribed to
   #
