@@ -1,4 +1,5 @@
-require "hootenanny/engine"
+require 'rails'
+require 'hootenanny/engine'
 
 module Hootenanny
 end
