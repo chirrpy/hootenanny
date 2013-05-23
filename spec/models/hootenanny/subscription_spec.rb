@@ -43,7 +43,7 @@ describe Hootenanny::Subscription do
     end
   end
 
-  it 'cannot assign a subscription unless it is a valid URI' do
+  it 'properly handles the error when the URIs are invalid' do
     expect { Subscription.assign( subscriber: 'http://iluvhamburgerz!!!',
                                   to:         'http://gimmeburger!!!') }.to raise_error Hootenanny::SubscriptionAssignmentError
   end
