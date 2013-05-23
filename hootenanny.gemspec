@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
 
   s.authors               = %w{jfelchner}
   s.email                 = 'support@thekompanee.com'
-  s.date                  = Date.today
+  s.date                  = Time.now
   s.homepage              = 'https://github.com/thekompanee/hootenanny'
 
   s.summary               = "PubSubHubBub Engine for Rails"
@@ -24,11 +24,10 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files      = %w[README.md]
 
   #= Manifest =#
-  s.executables           = Dir["{bin}/**/*"]
-  s.files                 = Dir["{app,config,db,lib}/**/*"] + %w{Rakefile README.md}
-  s.test_files            = Dir["{test,spec,features}/**/*"]
+  s.files                 = `git ls-files`.split($/)
+  s.executables           = s.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  s.test_files            = s.files.grep(%r{^(test|spec|features)/})
   s.require_paths         = ["lib"]
-  #= Manifest =#
 
   s.add_dependency              'rails',                '~> 3.2'
 
