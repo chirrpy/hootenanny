@@ -35,6 +35,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency  'sqlite3'
   s.add_development_dependency  'rspec-rails',          '~> 2.13'
   s.add_development_dependency  'database_cleaner',     '~> 0.9.1'
-  s.add_development_dependency  'rspectacular',         '~> 0.12'
+  s.add_development_dependency  'rspectacular',         '~> 0.13'
   s.add_development_dependency  'factory_girl_rails',   '~> 4.2'
 end
