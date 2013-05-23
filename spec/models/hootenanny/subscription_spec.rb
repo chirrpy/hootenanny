@@ -15,4 +15,17 @@ describe Hootenanny::Subscription do
     expect(found_subscription).to be_a Subscription
     expect(found_subscription.topic).to eql 'my_topic'
   end
+
+  context 'when a subscription does not exist for a given subscriber and topic' do
+    before { expect(Subscription.count).to be_zero }
+
+    it 'can assign a subscription to a given subscriber and topic' do
+      assigned_subscription = Subscription.assign( subscriber: 'http://example.com/my_callback',
+                                                   to:         'http://example.org/my_topic')
+
+      expect(assigned_subscription).to             be_persisted
+      expect(assigned_subscription.subscriber).to  eql 'http://example.com/my_callback'
+      expect(assigned_subscription.topic).to       eql 'http://example.org/my_topic'
+    end
+  end
 end
