@@ -61,6 +61,7 @@ class   Subscription < ActiveRecord::Base
     subscriber = options.fetch(:subscriber)
     topic      = options.fetch(:to)
 
+    where( subscriber: subscriber, topic: topic).first ||
     create(subscriber: subscriber, topic: topic)
   end
 end

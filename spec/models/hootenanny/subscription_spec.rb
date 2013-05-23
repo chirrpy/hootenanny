@@ -28,4 +28,18 @@ describe Hootenanny::Subscription do
       expect(assigned_subscription.topic).to       eql 'http://example.org/my_topic'
     end
   end
+
+  context 'when a subscription already exists for a given subscriber and topic' do
+    let!(:existing_subscription) do
+      create(:subscription, subscriber: 'http://example.com/my_callback',
+                            topic:      'http://example.org/my_topic')
+    end
+
+    it 'can does not create a new subscription but rather returns the current one' do
+      assigned_subscription = Subscription.assign( subscriber: 'http://example.com/my_callback',
+                                                   to:         'http://example.org/my_topic')
+
+      expect(assigned_subscription).to eql existing_subscription
+    end
+  end
 end
