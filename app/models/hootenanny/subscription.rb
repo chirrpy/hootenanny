@@ -58,8 +58,8 @@ class   Subscription < ActiveRecord::Base
   # Returns a Subscription
   #
   def self.assign(options = {})
-    subscriber = options.fetch(:subscriber)
-    topic      = options.fetch(:to)
+    subscriber = URI.parse(options.fetch(:subscriber)).to_s
+    topic      = URI.parse(options.fetch(:to)).to_s
 
     where( subscriber: subscriber, topic: topic).first ||
     create(subscriber: subscriber, topic: topic)

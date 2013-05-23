@@ -42,4 +42,9 @@ describe Hootenanny::Subscription do
       expect(assigned_subscription).to eql existing_subscription
     end
   end
+
+  it 'cannot assign a subscription unless it is a valid URI' do
+    expect { Subscription.assign( subscriber: 'http://iluvhamburgerz!!!',
+                                  to:         'http://gimmeburger!!!') }.to raise_error URI::InvalidURIError
+  end
 end
